@@ -1,13 +1,10 @@
 class Carbase:
 
-    def __init__(self, car_type, brand, passenger_seats_count, photo_le_name, body_whl, carring, extra):
+    def __init__(self, car_type, brand, photo_le_name, carrying):
         self.car_type = car_type
         self.brand = brand
-        self.passenger_seats_count = passenger_seats_count
         self.photo_le_name = photo_le_name
-        self.body_whl = body_whl
-        self.carring = carring
-        self.extra = extra
+        self.carrying = float(carrying)
 
     def get_photo_le_ext(self):
         num_of_t = self.photo_le_name.find('.')
@@ -15,17 +12,24 @@ class Carbase:
 
 class Car:
 
-    def __init__(self):
-        pass
+    def __init__(self, car_type, brand, passenger_seats_count, photo_le_name, carrying):
+        self.passenger_seats_count = int(passenger_seats_count)
+        super.__init__(car_type, brand, photo_le_name, carrying)
+
+
 
 class Truck:
-    def __init__(self):
-        pass
+    def __init__(self, car_type, brand, photo_le_name, carrying, body_width, body_height, body_length):
+        super.__init__(car_type, brand, photo_le_name, carrying)
+        self.body_width = float(body_width)
+        self.body_height = float(body_height)
+        self.body_length = float(body_length)
 
 
 class Specmachine:
-    def __init__(self):
-        pass
+    def __init__(self, car_type, brand, photo_le_name, carrying, extra):
+        super.__init__(car_type, brand, photo_le_name, carrying)
+        self.extra = extra
 
 def get_car_list(filename):
     car_list = []
