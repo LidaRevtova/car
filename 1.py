@@ -19,17 +19,23 @@ class Car:
 
 
 class Truck:
-    def __init__(self, car_type, brand, photo_le_name, carrying, body_width, body_height, body_length):
+    def __init__(self, car_type, brand, photo_le_name, carrying, body_whl):
         super.__init__(car_type, brand, photo_le_name, carrying)
-        self.body_width = float(body_width)
-        self.body_height = float(body_height)
-        self.body_length = float(body_length)
+        self.body_whl = body_whl.split('x')
+        self.body_width = float(self.body_whl[0])
+        self.body_height = float(self.body_whl[1])
+        self.body_length = float(self.body_whl[2])
+
+    def get_body_volume(self):
+        return self.body_length * self.body_width * self.body_height
 
 
 class Specmachine:
     def __init__(self, car_type, brand, photo_le_name, carrying, extra):
         super.__init__(car_type, brand, photo_le_name, carrying)
         self.extra = extra
+
+
 
 def get_car_list(filename):
     car_list = []
