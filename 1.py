@@ -21,7 +21,7 @@ class Car(Carbase):
         """метод инициализации"""
         super().__init__(car_type, brand, photo_le_name)
         self.passenger_seats_count = int(passenger_seats_count) or None
-        self.carrying = float(carrying)
+        self.carrying = float(carrying) or None
 
 class Truck(Carbase):
     """класс грузовика"""
@@ -50,7 +50,7 @@ class Specmachine(Carbase):
         """метод инициализации"""
         super().__init__(car_type, brand, photo_le_name)
         self.extra = extra
-        self.carrying = float(carrying)
+        self.carrying = float(carrying) or None
 
 
 def get_car_list(filename):
