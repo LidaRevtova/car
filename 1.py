@@ -41,8 +41,8 @@ def get_car_list(filename):
     car_list = []
     with open(filename, encoding='utf-8') as f:
         for i in f:
-            line = i.split(';')
-            line.append(car_list)
+            line = i[:-1].split(';')
+            car_list.append(line[:-1])
     return car_list
 
 def main():
@@ -50,3 +50,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+print(get_car_list('solution.txt'))
